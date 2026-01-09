@@ -219,6 +219,39 @@ window.onload = function () {
     <a href="/support.html">Support</a>
   </p>
 </footer>
+<div id="cookie" style="
+position:fixed;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+background:#0b0f1a;
+color:#eaeaea;
+padding:14px 20px;
+border-radius:10px;
+font-size:14px;
+display:none;
+z-index:9999;">
+This website does not use cookies for tracking.
+<button onclick="acceptCookie()" style="
+margin-left:10px;
+background:#6ec1ff;
+border:none;
+padding:6px 12px;
+border-radius:6px;
+cursor:pointer;">
+OK
+</button>
+</div>
+
+<script>
+function acceptCookie(){
+  localStorage.setItem("cookie_ok","1");
+  document.getElementById("cookie").style.display="none";
+}
+if(!localStorage.getItem("cookie_ok")){
+  document.getElementById("cookie").style.display="block";
+}
+</script>
 
 </body>
 </html>
