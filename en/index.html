@@ -2,65 +2,154 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CanT Studio – Game & App Developer</title>
+<title>CanT Studio – Game & App Development</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Independent game and mobile application development studio.">
+<meta name="description" content="CanT Studio is an independent game and mobile application development studio.">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 
 <style>
 body {
-  margin:0;
+  margin: 0;
   font-family: Arial, sans-serif;
-  background:#0f172a;
-  color:#e5e7eb;
+  background: #0f172a;
+  color: #eaeaea;
 }
-header {
-  padding:50px 20px;
-  text-align:center;
-  background:#020617;
-}
-section {
-  max-width:900px;
-  margin:auto;
-  padding:40px 20px;
-}
-h1, h2 { color:#38bdf8; }
-.card {
-  background:#020617;
-  padding:25px;
-  border-radius:12px;
-  margin-bottom:20px;
-}
-a { color:#38bdf8; text-decoration:none; }
+
+/* Language */
 .lang {
-  position:absolute;
-  top:15px;
-  right:20px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 14px;
+}
+
+/* Header */
+header {
+  padding: 60px 20px;
+  text-align: center;
+  background: #020617;
+}
+
+.logo {
+  height: 70px;
+}
+
+/* Content */
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* Cards */
+.card {
+  background: #020617;
+  padding: 25px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+}
+
+.card h2 {
+  color: #6ec1ff;
+}
+
+.card p {
+  color: #eaeaea;
+  line-height: 1.6;
+}
+
+a {
+  color: #6ec1ff;
+  text-decoration: none;
+}
+
+/* POPUP */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup {
+  background: #0b0f1a;
+  padding: 26px;
+  max-width: 420px;
+  width: 90%;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.popup h2 {
+  color: #6ec1ff;
+}
+
+.popup p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.popup a {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 20px;
+  background: #6ec1ff;
+  color: #000;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.popup button {
+  margin-top: 14px;
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
+<!-- Language -->
 <div class="lang">
   <a href="/">TR</a> | <b>EN</b>
 </div>
 
-<header>
-  <div style="font-size:42px;font-weight:bold;letter-spacing:2px;color:#38bdf8;">
-    CanT<span style="color:#e5e7eb;"> Studio</span>
+<!-- POPUP -->
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <h2 id="popupTitle"></h2>
+    <p id="popupText"></p>
+
+    <a href="https://instagram.com/cantsofficial" target="_blank">
+      Instagram
+    </a>
+
+    <br>
+    <button onclick="closePopup()" id="popupClose"></button>
   </div>
-  <p style="margin-top:10px;">
-    Indie Game & Application Development Studio
-  </p>
+</div>
+
+<!-- HEADER -->
+<header>
+  <img src="/assets/logo.svg" alt="CanT Studio Logo" class="logo">
+  <p>Independent Game & Mobile Application Development Studio</p>
 </header>
 
+<!-- CONTENT -->
 <section>
+
   <div class="card">
     <h2>🎮 About Us</h2>
     <p>
-      CanT Studio is an independent game and mobile application developer.
-      We focus on creating fun, simple and high-quality experiences
-      for Android and iOS platforms.
+      CanT Studio is an independent studio developing
+      simple, fun, and accessible games for
+      Android and iOS platforms.
     </p>
   </div>
 
@@ -68,7 +157,7 @@ a { color:#38bdf8; text-decoration:none; }
     <h2>📱 Games & Applications</h2>
     <p>
       Our projects are currently under development.<br>
-      Stay tuned!
+      Coming soon!
     </p>
     <a href="/games.html">View Projects</a>
   </div>
@@ -77,16 +166,37 @@ a { color:#38bdf8; text-decoration:none; }
     <h2>📩 Contact</h2>
     <p>
       Support & Business:<br>
-      <b>cantstudio@gmail.com</b>
+      <b>support@cant.studio</b>
     </p>
     <p>
       Instagram:<br>
-      <a href="https://instagram.com/cantstudio" target="_blank">
-        instagram.com/cantstudio
+      <a href="https://instagram.com/cantsofficial" target="_blank">
+        instagram.com/cantsofficial
       </a>
     </p>
   </div>
+
 </section>
+
+<!-- JS -->
+<script>
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+  localStorage.setItem("cantstudio_popup", "shown");
+}
+
+window.onload = function () {
+  if (localStorage.getItem("cantstudio_popup")) {
+    document.getElementById("popup").style.display = "none";
+    return;
+  }
+
+  document.getElementById("popupTitle").innerText = "Welcome to CanT Studio";
+  document.getElementById("popupText").innerHTML =
+    "We develop mobile games and applications.<br>Follow us on Instagram for updates 🚀";
+  document.getElementById("popupClose").innerText = "Close";
+};
+</script>
 
 </body>
 </html>
