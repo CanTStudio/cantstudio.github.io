@@ -1,155 +1,211 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <style>
-h1, h2, h3, p {
-    color: #eaeaea;
-}
-</style>
 <meta charset="UTF-8">
-<title>CanT Studio – Indie Game & App Developer</title>
+<title>CanT Studio – Oyun & Uygulama Geliştirme</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CanT Studio bağımsız oyun ve mobil uygulama geliştirme stüdyosu.">
 
-<meta name="description" content="CanT Studio is an independent game and mobile application developer creating fun projects for Android and iOS.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 
-<style> 
-  <div class="lang" style="position:absolute;top:15px;right:20px;">
-  <b>TR</b> | <a href="/en/">EN</a>
-</div>
+<style>
 body {
-  margin:0;
+  margin: 0;
   font-family: Arial, sans-serif;
-  background:#0f172a;
-  color:#e5e7eb;
+  background: #0f172a;
+  color: #eaeaea;
 }
+
+/* Dil Seçici */
+.lang {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 14px;
+}
+
+/* Header */
 header {
-  padding:60px 20px;
-  text-align:center;
-  background:#020617;
+  padding: 60px 20px;
+  text-align: center;
+  background: #020617;
 }
+
+.logo {
+  height: 70px;
+}
+
+/* Genel Alan */
 section {
-  max-width:900px;
-  margin:auto;
-  padding:40px 20px;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
 }
-h1, h2 {
-  color:#38bdf8;
-}
+
+/* Kartlar */
 .card {
-  background:#020617;
-  padding:25px;
-  border-radius:12px;
-  margin-bottom:20px;
+  background: #020617;
+  padding: 25px;
+  border-radius: 14px;
+  margin-bottom: 25px;
 }
-.button {
-  display:inline-block;
-  padding:12px 20px;
-  margin-top:15px;
-  background:#38bdf8;
-  color:#020617;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
+
+.card h2 {
+  color: #6ec1ff;
 }
-footer {
-  text-align:center;
-  padding:25px;
-  background:#020617;
-  font-size:14px;
+
+.card p {
+  color: #eaeaea;
+  line-height: 1.6;
 }
-a { color:#38bdf8; text-decoration:none; }
-</style>
-  <style>
+
+a {
+  color: #6ec1ff;
+  text-decoration: none;
+}
+
+/* POPUP */
 .popup-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
 .popup {
-    background: #0b0f1a;
-    color: #eaeaea;
-    padding: 25px;
-    max-width: 420px;
-    width: 90%;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  background: #0b0f1a;
+  padding: 26px;
+  max-width: 420px;
+  width: 90%;
+  border-radius: 14px;
+  text-align: center;
 }
 
 .popup h2 {
-    color:
+  color: #6ec1ff;
+}
+
+.popup p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.popup a {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 20px;
+  background: #6ec1ff;
+  color: #000;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.popup button {
+  margin-top: 14px;
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <div style="font-size:42px;font-weight:bold;letter-spacing:2px;color:#38bdf8;">
-    CanT<span style="color:#e5e7eb;"> Studio</span>
+<!-- Dil -->
+<div class="lang">
+  <b>TR</b> | <a href="/en/">EN</a>
+</div>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <h2 id="popupTitle"></h2>
+    <p id="popupText"></p>
+
+    <a href="https://instagram.com/cantstudio" target="_blank">
+      Instagram
+    </a>
+
+    <br>
+    <button onclick="closePopup()" id="popupClose"></button>
   </div>
-  <p style="margin-top:10px;">
-    Indie Game & Application Development Studio
-  </p>
+</div>
+
+<!-- HEADER -->
+<header>
+  <img src="/assets/logo.svg" alt="CanT Studio Logo" class="logo">
+  <p>Bağımsız Oyun & Mobil Uygulama Geliştirme Stüdyosu</p>
 </header>
 
-
+<!-- İÇERİK -->
 <section>
+
   <div class="card">
-    <h2>🇹🇷 Hakkımızda</h2>
+    <h2>🎮 Hakkımızda</h2>
     <p>
-      CanT Studio, Android ve iOS platformları için mobil oyunlar ve uygulamalar
-      geliştiren bağımsız bir stüdyodur. Eğlenceli, kaliteli ve kullanıcı odaklı
-      projeler üretir.
+      CanT Studio, Android ve iOS platformları için
+      sade, eğlenceli ve erişilebilir oyunlar
+      geliştiren bağımsız bir stüdyodur.
     </p>
   </div>
 
   <div class="card">
-    <h2>🇺🇸 About Us</h2>
+    <h2>📱 Oyunlar & Uygulamalar</h2>
     <p>
-      CanT Studio is an independent studio developing mobile games and applications
-      for Android and iOS. We focus on fun, quality and user-friendly projects.
+      Şu anda projelerimiz geliştirme aşamasındadır.<br>
+      Çok yakında!
     </p>
+    <a href="/games.html">Projeleri Gör</a>
   </div>
-</section>
 
-<section>
   <div class="card">
-    <h2>🎮 Games & Apps</h2>
+    <h2>📩 İletişim</h2>
     <p>
-      Our games and applications will be published here.
+      Support & Business:<br>
+      <b>support@cant.studio</b>
     </p>
-    <p><b>Status:</b> Coming Soon</p>
+    <p>
+      Instagram:<br>
+      <a href="https://instagram.com/cantsofficial" target="_blank">
+        instagram.com/cantsofficial
+      </a>
+    </p>
   </div>
+
 </section>
 
-<section>
-<div class="card">
-  <h2>📩 Contact</h2>
-  <p>
-    Support & Business:<br>
-    <b>support@cant.studio</b>
-  </p>
-  <p>
-    Instagram:<br>
-    <a href="https://instagram.com/cantsofficial" target="_blank">
-      instagram.com/cantsofficial
-    </a>
-  </p>
-</div>
-</section>
+<!-- JS -->
+<script>
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+  localStorage.setItem("cantstudio_popup", "shown");
+}
 
-<section style="text-align:center;">
-  <a class="button" href="privacy.html">Privacy Policy</a>
-  <a class="button" href="support.html">Support</a>
-</section>
+window.onload = function () {
+  if (localStorage.getItem("cantstudio_popup")) {
+    document.getElementById("popup").style.display = "none";
+    return;
+  }
 
-<footer>
-  © 2026 CanT Studio – Indie Game & App Developer
-</footer>
+  const lang = navigator.language || navigator.userLanguage;
+
+  if (lang.startsWith("tr")) {
+    document.getElementById("popupTitle").innerText = "CanT Studio’ya Hoş Geldiniz";
+    document.getElementById("popupText").innerHTML =
+      "Mobil oyunlar ve uygulamalar geliştiriyoruz.<br>Projelerimizi takip etmek için Instagram’a göz atın 🚀";
+    document.getElementById("popupClose").innerText = "Kapat";
+  } else {
+    document.getElementById("popupTitle").innerText = "Welcome to CanT Studio";
+    document.getElementById("popupText").innerHTML =
+      "We develop mobile games and applications.<br>Follow us on Instagram for updates 🚀";
+    document.getElementById("popupClose").innerText = "Close";
+  }
+};
+</script>
 
 </body>
 </html>
